@@ -52,6 +52,3 @@ Thermostat.prototype.switchPowerSavingModeOff = function() {
 Thermostat.prototype.switchPowerSavingModeOn = function() {
   this.powerSavingMode = true;
 }
-// Thermostat.prototype.switchOffPsm = function() {
-//   this.powerSavingMode = false;
-// };

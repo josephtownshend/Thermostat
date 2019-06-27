@@ -88,8 +88,19 @@ describe('Thermostat', function() {
       thermostat.tempUp();
       }
       expect(thermostat.getCurrentTemperature()).toEqual(25);
-    })
-  })
+    });
+  });
+
+  describe('When PSM is off', function() {
+
+    it('has a maximum temperature of 32 degrees', function() {
+      thermostat.switchPowerSavingModeOff();
+      for (var i = 0; i < 33; i++) {
+      thermostat.tempUp();
+    }
+      expect(thermostat.getCurrentTemperature()).toEqual(32);
+    });
+  });
 
 
 });

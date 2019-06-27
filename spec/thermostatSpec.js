@@ -60,7 +60,7 @@ describe('Thermostat', function() {
   describe('Minimum temperature', function() {
 
     it('Has a min temp of 10 degrees', function() {
-      for (var i = 0; i < 10; i++) {
+      for (var i = 0; i < 11; i++) {
       thermostat.tempDown();
     }
       expect(thermostat.getCurrentTemperature()).toEqual(10);
@@ -69,18 +69,27 @@ describe('Thermostat', function() {
 
   describe('Power Save Mode', function() {
 
-    it('can switch PSM off', function() {
-    thermostat.switchPowerSavingModeOff();
-    expect(thermostat.isPowerSavingModeOn()).toBe(false);
+    it('Can switch PSM off', function() {
+      thermostat.switchPowerSavingModeOff();
+      expect(thermostat.isPowerSavingModeOn()).toBe(false);
     });
-    it('can switch PSM back on', function() {
-    thermostat.switchPowerSavingModeOff();
-    expect(thermostat.isPowerSavingModeOn()).toBe(false);
-    thermostat.switchPowerSavingModeOn();
-    expect(thermostat.isPowerSavingModeOn()).toBe(true);
+    it('Can switch PSM back on', function() {
+      thermostat.switchPowerSavingModeOff();
+      expect(thermostat.isPowerSavingModeOn()).toBe(false);
+      thermostat.switchPowerSavingModeOn();
+      expect(thermostat.isPowerSavingModeOn()).toBe(true);
     });
-
   });
+
+  describe('When PSM in on', function() {
+
+    it('Has a max temp of 25', function() {
+      for (var i = 0; i < 6; i++) {
+      thermostat.tempUp();
+      }
+      expect(thermostat.getCurrentTemperature()).toEqual(25);
+    })
+  })
 
 
 });

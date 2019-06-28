@@ -1,0 +1,46 @@
+body {
+  background-color: #000;
+}
+
+h1 {
+  color: #1090a3;
+  font-family: 'Space Mono', monospace;
+  text-align: center;
+  font-size: 70px;
+}
+
+h2 {
+  color: #fff;
+  font-family: 'Space Mono', monospace;
+  text-align: center;
+  font-size: 50px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.second_header {
+  margin-bottom: 20px;
+}
+
+#my_centered_buttons {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+margin: 10px;
+font-family: 'Space Mono', monospace;
+font-size: 20px;
+background-color: #1090a3;
+color: #fff;
+border-radius: 5px;
+border: 0px;
+padding: 5px 15px 5px 15px;
+}
+
+.button2 {
+  background-color: #e33048;
+}
+.button1 {
+  background-color: #20eaf5;
+}

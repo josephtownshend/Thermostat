@@ -3,10 +3,16 @@ $(document).ready(function() {
   var thermostat = new Thermostat();
   $( "h1" ).text(thermostat.getCurrentTemperature());
 
+  $.get("http://api.openweathermap.org/data/2.5/weather?lat=51.51&lon=-0.13&APPID=62804b7d2f4774c56b134ebc2c182dee", function(londonWeather) {
+    $( "#londonTemp" ).text(Math.floor(londonWeather.main.temp - 273.15))
+    $( "#londonHumidity" ).text(londonWeather.main.humidity)
+  })
+
+
+
 $("#up").click(function() {
   thermostat.tempUp();
   var temp = thermostat.getCurrentTemperature();
-  alert("Temp Up")
   console.log(temp);
   $( "h1" ).text(thermostat.getCurrentTemperature());
 })
@@ -14,35 +20,30 @@ $("#up").click(function() {
 $("#down").click(function() {
   thermostat.tempDown();
   var temp = thermostat.getCurrentTemperature();
-  alert("Temp Down")
   console.log(temp);
   $( "h1" ).text(thermostat.getCurrentTemperature());
 })
 
 $("#psm_on").click(function() {
   thermostat.switchPowerSavingModeOn();
-  alert("PSM On")
   console.log(thermostat.isPowerSavingModeOn());
   $( "h1" ).text(thermostat.getCurrentTemperature());
 })
 
 $("#psm_off").click(function() {
   thermostat.switchPowerSavingModeOff();
-  alert("PSM Off")
   console.log(thermostat.isPowerSavingModeOn());
   $( "h1" ).text(thermostat.getCurrentTemperature());
 })
 
 $("#reset").click(function() {
   thermostat.resetTemp();
-  alert("Reset Temp")
   console.log(thermostat.getCurrentTemperature());
   $( "h1" ).text(thermostat.getCurrentTemperature());
 })
 
 $("#energy").click(function() {
   var energy = thermostat.getCurrentEnergy();
-  alert(`${energy}`)
   console.log(thermostat.getCurrentEnergy());
   $( "h1" ).text(thermostat.getCurrentTemperature());
 })

@@ -4,16 +4,32 @@
     <script src="jquery-3.4.1.min.js"></script>
     <script src="src/thermostat.js"></script>
     <script src="src/interface.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Rubik+Mono+One|Space+Mono&display=swap" rel="stylesheet">
   </head>
 
   <body>
     <h1></h1>
-    <button id="up">Temp Up</button><br>
-    <button id="down">Temp Down</button><br>
-    <button id="psm_on">Power Saving Mode On</button><br>
-    <button id="psm_off">Power Saving Mode Off</button><br>
-    <button id="reset">Reset Temp</button><br>
+
+    <h2>Temperature of London is <span id="londonTemp"</span></h2>
+    <h2 class="second_header">Humidity of London is <span id="londonHumidity"</span></h2>
+
+<div class="button_style" id="my_centered_buttons">
+    <button class="button1" id="down">-</button>
+    <button class="button2" id="up">+</button>
+
+</div>
+
+<div class="button_style_2" id="my_centered_buttons">
+    <button id="psm_on">Power Saving Mode On</button>
+    <button id="psm_off">Power Saving Mode Off</button>
+</div>
+
+<div class="button_style_3" id="my_centered_buttons">
+    <button id="reset">Reset Temp</button>
     <button id="energy">Check Energy Usage</button>
+</div>
+
   </body>
 
 

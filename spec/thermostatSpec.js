@@ -59,7 +59,7 @@ describe('Thermostat', function() {
 
   describe('Minimum temperature', function() {
 
-    it('Has a min temp of 10 degrees', function() {
+    it('Has a min temp of 10', function() {
       for (var i = 0; i < 11; i++) {
       thermostat.tempDown();
     }
@@ -93,7 +93,7 @@ describe('Thermostat', function() {
 
   describe('When PSM is off', function() {
 
-    it('has a maximum temperature of 32 degrees', function() {
+    it('Has a maximum temperature of 32', function() {
       thermostat.switchPowerSavingModeOff();
       for (var i = 0; i < 33; i++) {
       thermostat.tempUp();
@@ -102,5 +102,31 @@ describe('Thermostat', function() {
     });
   });
 
+  describe('resetTemp', function() {
+
+    it('Can reset the temp to 20', function() {
+      thermostat.resetTemp();
+      expect(thermostat.getCurrentTemperature()).toEqual(20);
+    });
+  });
+
+  describe('Current Energy Usage', function() {
+
+    it('Can return Low energy usage when temp < 18', function() {
+      thermostat.temperature = 17;
+      thermostat.getCurrentEnergy();
+      expect(thermostat.getCurrentEnergy()).toEqual("Low");
+    });
+    it('Can return Medium energy usage when temp > 18 & < 25', function() {
+      thermostat.temperature = 20;
+      thermostat.getCurrentEnergy();
+      expect(thermostat.getCurrentEnergy()).toEqual("Medium");
+    });
+    it('Can return High energy usage when temp > 25', function() {
+      thermostat.temperature = 27;
+      thermostat.getCurrentEnergy();
+      expect(thermostat.getCurrentEnergy()).toEqual("High");
+    });
+  });
 
 });
